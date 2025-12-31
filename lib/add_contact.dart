@@ -69,40 +69,45 @@ class _AddContactState extends State<AddContact> {
                           : SizedBox(width: width(context) * 0.355721393,height: width(context) * 0.355721393)
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  spacing: height(context)*0.017709563,
-                  children: [
-                    ValueListenableBuilder<String>(
-                      valueListenable: name,
-                      builder: (context, value, child) => Text(
-                        value.isNotEmpty ? value : 'User Name',
-                        style: infoStyle,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    spacing: height(context)*0.017709563,
+                    children: [
+                      ValueListenableBuilder<String>(
+                        valueListenable: name,
+                        builder: (context, value, child) => Text(
+                          value.isNotEmpty ? value : 'User Name',
+                          style: infoStyle,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: width(context) / 2,
-                      child: Divider(height: 1, color: secColor),
-                    ),
-                    ValueListenableBuilder<String>(
-                      valueListenable: eMail,
-                      builder: (context, value, child) => Text(
-                        value.isNotEmpty ? value : 'E-mail address',
-                        style: infoStyle,
+                      SizedBox(
+                        width: width(context) / 2,
+                        child: Divider(height: 1, color: secColor),
                       ),
-                    ),
-                    SizedBox(
-                      width: width(context) / 2,
-                      child: Divider(height: 1, color: secColor),
-                    ),
-                    ValueListenableBuilder<String>(
-                      valueListenable: number,
-                      builder: (context, value, child) => Text(
-                        value.isNotEmpty ? value : 'Number',
-                        style: infoStyle,
+                      ValueListenableBuilder<String>(
+                        valueListenable: eMail,
+                        builder: (context, value, child) => Text(
+                          value.isNotEmpty ? value : 'E-mail address',
+                          style: infoStyle,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        width: width(context) / 2,
+                        child: Divider(height: 1, color: secColor),
+                      ),
+                      ValueListenableBuilder<String>(
+                        valueListenable: number,
+                        builder: (context, value, child) => Text(
+                          value.isNotEmpty ? value : 'Number',
+                          style: infoStyle,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
