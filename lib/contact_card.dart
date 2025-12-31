@@ -45,7 +45,7 @@ class _ContactCardState extends State<ContactCard> {
                     color: Color(0xffFFF1D4),
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   ),
-                  child: Text(contactsL[widget.index].name),
+                  child: Text(contactsL[widget.index].name,overflow: TextOverflow.ellipsis,),
                 ),
               ),
             ),
@@ -76,22 +76,22 @@ class _ContactCardState extends State<ContactCard> {
   }
 }
 
-class ContactCardInfo extends StatelessWidget {
-  final String name;
-  final bool numb;
-  const ContactCardInfo({super.key,required this.name,required this.numb});
+  class ContactCardInfo extends StatelessWidget {
+    final String name;
+    final bool numb;
+    const ContactCardInfo({super.key,required this.name,required this.numb});
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 5.0),
-      child: Row(
-        spacing: 8,
-        children: [
-          Image.asset(numb?'assets/icons/Phone_call.png':'assets/icons/E_Mail.png', width: 30),
-          Text(name),
-        ],
-      ),
-    );
+    @override
+    Widget build(BuildContext context) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 5.0),
+        child: Row(
+          spacing: 8,
+          children: [
+            Image.asset(numb?'assets/icons/Phone_call.png':'assets/icons/E_Mail.png', width: 30),
+            Expanded(child: Text(name,overflow: TextOverflow.ellipsis,)),
+          ],
+        ),
+      );
+    }
   }
-}
